@@ -6,7 +6,7 @@
 \begin{fmffile}{diagrams}
 \begin{figure}[h]
 \centering
-\begin{fmfgraph*}(100,60)
+\begin{fmfchar*}(100,60)
   \fmfleft{i1,i2}
   \fmfright{o1,o2}
   \fmfv{label=$e^-$}{i1}
@@ -14,12 +14,14 @@
   \fmfv{label=$\gamma$}{o1}
   \fmfv{label=$\gamma$}{o2}
 
-  \fmf{fermion}{i1,v1,v2,i2}
-  \fmf{photon}{v1,o1}
-  \fmf{photon}{v2,o2}
-\end{fmfgraph*}
+  \fmf{fermion,tension=1.5}{i1,v1}
+  \fmf{fermion}{v1,v2}
+  \fmf{fermion,tension=0.8}{v2,i2}
+  \fmf{photon,tension=0.8}{v1,o1}
+  \fmf{photon,tension=1.5}{v2,o2}
+\end{fmfchar*}
 \hspace{1.5cm}
-\begin{fmfgraph*}(100,60)
+\begin{fmfchar*}(100,60)
   \fmfleft{i1,i2}
   \fmfright{o1,o2}
   \fmfv{label=$e^-$}{i1}
@@ -27,10 +29,12 @@
   \fmfv{label=$\gamma$}{o1}
   \fmfv{label=$\gamma$}{o2}
 
-  \fmf{fermion}{i1,v1,v2,i2}
-  \fmf{photon}{v1,o1}
-  \fmf{photon}{v2,o2}
-\end{fmfgraph*}
+  \fmf{fermion,tension=0.8}{i1,v1}
+  \fmf{fermion}{v1,v2}
+  \fmf{fermion,tension=1.5}{v2,i2}
+  \fmf{photon,tension=1.5}{v1,o1}
+  \fmf{photon,tension=0.8}{v2,o2}
+\end{fmfchar*}
 \caption{Feynman graphs for the lowest order contributions to electron-
 positron annihilation~\cite{MartinShaw}}
 \end{figure}
