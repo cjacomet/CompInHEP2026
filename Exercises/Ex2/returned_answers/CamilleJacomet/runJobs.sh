@@ -9,3 +9,4 @@ for ((i=1; i<=N; i++)); do
 done
 
 wait
+make cleanAll # Clean up files

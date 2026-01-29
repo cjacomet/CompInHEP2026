@@ -1,11 +1,10 @@
 SRC = $(wildcard *.cpp)
 OBJECTS = $(addsuffix .o, $(basename $(SRC)))
-ARG ?= #Integer number as command line input parameter for hello
+ARG ?= # Integer number as command line input parameter for hello
 
 all:
 	$(MAKE) compile
 	$(MAKE) hello
-# $(MAKE) run
 
 .cpp.o:
 	$(CXX) -c $<
@@ -30,5 +29,8 @@ clean:
 
 cleanAll:
 	rm -f hello
-	rm -f $(OUTPUT)
 	$(MAKE) clean
+
+# Easily clear output files
+cleanOutput:
+	rm -f $(OUTPUT)

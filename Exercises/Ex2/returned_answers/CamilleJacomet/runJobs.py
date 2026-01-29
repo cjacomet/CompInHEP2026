@@ -30,4 +30,5 @@ if __name__=="__main__":
     subprocess.run(["make"], check=True) # Compile and link helloNr
     with ProcessPoolExecutor(max_workers=n) as executor:
         executor.map(wrapper, zip(range(n), input))
+    subprocess.run(["make", "cleanAll"], check=True) # Clean up files
     
