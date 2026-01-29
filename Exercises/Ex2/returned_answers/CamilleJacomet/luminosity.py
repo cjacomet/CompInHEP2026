@@ -36,4 +36,4 @@ def find_val(file, colname):
 if __name__=="__main__":
     lum = find_val("brilcalc.log", "totrecorded(/pb)") #summary luminosity in /pb
     lum *= 1e-3 #convert to /fb
-    print(f"{lum:.1f} /fb")
+    print(f"totrecorded (/fb): {lum:.1f}")
