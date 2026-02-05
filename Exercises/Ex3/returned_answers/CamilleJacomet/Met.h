@@ -2,11 +2,11 @@
 #define MET_H
 #include <cmath>
 
-class MeasMET {
+class Met {
     public:
-    MeasMET()=default;
-    MeasMET(double val, double xVal, double yVal);
-    ~MeasMET()=default;
+    Met()=default;
+    Met(double val, double xVal, double yVal);
+    ~Met()=default;
     double getValue();
     double getX();
     double getY();
