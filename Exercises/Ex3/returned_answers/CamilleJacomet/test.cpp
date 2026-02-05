@@ -9,54 +9,38 @@ void testCreator() {
     cout << "Tested default creator and destructor" << endl;
     Met met2(1.1,2.2,3.3);
     cout << "Tested creator with arguments" << endl;
-};
+}
 
-void testValue() {
+bool testValue() {
     double val = 2.2;
     Met met(val,1,1);
-    if (met.getValue() == val) {
-        cout << "Test getValue: pass" << endl;
-    } else {
-        cout << "Test getValue: fail" << endl;
-    }
-};
+    return met.getValue() == val;
+}
 
-void testX() {
+bool testX() {
     double x = 3.1;
     Met met(1,x,1);
-    if (met.getX() == x) {
-        cout << "Test getX: pass" << endl;
-    } else {
-        cout << "Test getX: fail" << endl;
-    }
-};
+    return met.getX() == x;
+}
 
-void testY() {
+bool testY() {
     double y = 0.5;
     Met met(1,1,y);
-    if (met.getY() == y) {
-        cout << "Test getY: pass" << endl;
-    } else {
-        cout << "Test getY: fail" << endl;
-    }
-};
+    return met.getY() == y;
+}
 
-void testPhi() {
+bool testPhi() {
     double x = 0.3;
     double y = 1.2;
     Met met(5,x,y);
-    if (met.getPhi() == atan(y/x)) {
-        cout << "Test getPhi: pass" << endl;
-    } else {
-        cout << "Test getPhi: fail" << endl;
-    }
-};
+    return met.getPhi() == atan2(y, x);
+}
 
 int main() {
     testCreator();
-    testValue();
-    testX();
-    testY();
-    testPhi();
+    cout << "Test getValue: " << (testValue() ? "pass" : "fail") << endl;
+    cout << "Test getX: " << (testX() ? "pass" : "fail") << endl;
+    cout << "Test getY: " << (testY() ? "pass" : "fail") << endl;
+    cout << "Test getPhi: " << (testPhi() ? "pass" : "fail") << endl;
     return 0;
 };
