@@ -43,4 +43,4 @@ int main() {
     cout << "Test getY: " << (testY() ? "pass" : "fail") << endl;
     cout << "Test getPhi: " << (testPhi() ? "pass" : "fail") << endl;
     return 0;
-};
+}
