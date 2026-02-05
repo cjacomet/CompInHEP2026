@@ -14,7 +14,5 @@ class MeasMET {
 
     private:
     double value,x,y;
-    // double x;
-    // double y;
 };
 #endif
