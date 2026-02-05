@@ -1,5 +1,6 @@
 #ifndef MET_H
 #define MET_H
+#include <cmath>
 
 class MeasMET {
     public:
@@ -12,8 +13,8 @@ class MeasMET {
     double getPhi();
 
     private:
-    double value;
-    double x;
-    double y;
+    double value,x,y;
+    // double x;
+    // double y;
 };
 #endif
