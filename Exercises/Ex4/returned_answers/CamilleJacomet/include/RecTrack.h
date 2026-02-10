@@ -1,19 +1,20 @@
 #ifndef RECTRACK_H
 #define RECTRACK_H
+#include <array>
 
 class RecTrack{
     public:
-    RecTrack();
-    RecTrack(double* p_in);
-    ~RecTrack();
+    RecTrack() = default;
+    RecTrack(const std::array<double, 4>& p_in);
+    ~RecTrack() = default;
 
-    void setTrack(double* p);
+    void setTrack(const std::array<double, 4>& p_in);
 
-    double* get4Mom() const;
+    std::array<double, 4> get4Mom() const;
     double getTransMom() const;
     double getPseudoRap() const;
 
     protected:
-    double* p;
+    std::array<double, 4> p; //t,x,y,z components in that order
 };
 #endif
