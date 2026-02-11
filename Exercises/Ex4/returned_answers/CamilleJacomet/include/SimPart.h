@@ -5,9 +5,9 @@
 
 class SimPart : protected RecTrack{
     public:
-    SimPart();
-    SimPart(double* p_in, std::string id_particle, std::string id_parent);
-    ~SimPart();
+    SimPart() = default;
+    SimPart(const std::array<double, 4>& p_in, std::string id_particle, std::string id_parent);
+    ~SimPart() = default;
 
     void setIDParticle(std::string id_particle);
     void setIDParent(std::string id_parent);
