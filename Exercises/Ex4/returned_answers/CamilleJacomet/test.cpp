@@ -59,6 +59,19 @@ void testSPconstr(array<double, 4>& p_in, string id_particle, string id_parent) 
 }
 
 int main() {
-    cout << "test" << endl;
+    array<double, 4> p_in = {0.707, 0.3, 0.4, 0.5};
+    string id_particle = "electron";
+    string id_parent = "muon";
+    cout << "Input four-momentum: ";
+    for (const auto& i : p_in)
+        cout << i << ' ';
+    cout << endl;
+    cout << "Input particle ID: " << id_particle << endl;
+    cout << "Input parent ID: " << id_parent << endl;
+
+    testRTset(p_in);
+    testRTconstr(p_in);
+    testSPset(p_in, id_particle, id_parent);
+    testSPconstr(p_in, id_particle, id_parent);
     return 0;
 }

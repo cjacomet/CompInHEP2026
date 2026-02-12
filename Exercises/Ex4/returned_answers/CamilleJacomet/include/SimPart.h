@@ -3,7 +3,7 @@
 #include "RecTrack.h"
 #include <string>
 
-class SimPart : protected RecTrack{
+class SimPart : public RecTrack{
     public:
     SimPart() = default;
     SimPart(const std::array<double, 4>& p_in, std::string id_particle, std::string id_parent);

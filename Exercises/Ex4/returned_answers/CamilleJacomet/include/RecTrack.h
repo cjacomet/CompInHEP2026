@@ -15,6 +15,6 @@ class RecTrack{
     double getPseudoRap() const;
 
     protected:
-    std::array<double, 4> p; //t,x,y,z components in that order
+    std::array<double, 4> p; //E,px,py,pz components in that order
 };
 #endif
