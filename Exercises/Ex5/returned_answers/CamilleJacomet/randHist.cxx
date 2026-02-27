@@ -16,6 +16,8 @@ void randHist(){
 
     TF1 *fit = new TF1("fit","gaus",0,100);
 
+    canvas->SetFillColor(kWhite);
+
     hist->GetXaxis()->SetTitle("Number");
     hist->GetYaxis()->SetTitle("Counts");
     hist->SetColors(kBlack,kBlack,kYellow);
