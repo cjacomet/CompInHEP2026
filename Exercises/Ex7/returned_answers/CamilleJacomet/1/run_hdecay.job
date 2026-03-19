@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+START_DIR=$(pwd)
+HDECAY_DIR="../../../../../external/HDECAY" # adapt with your HDECAY path
+
+cp -f hdecay.in $HDECAY_DIR/
+cd $HDECAY_DIR
+
+./run
+
+cp -f br.* "$START_DIR/"
