@@ -1,4 +1,4 @@
-PYTHIA8_URL = https://pythia.org/download/pythia83/pythia8311.tgz
+PYTHIA8_URL = https://pythia.org/download/pythia83/pythia8317.tgz
 PYTHIA8_TGZ = $(notdir $(PYTHIA8_URL))
 PYTHIA8_DIR = $(basename $(PYTHIA8_TGZ))
 
@@ -7,7 +7,7 @@ OBJS = $(addsuffix .o,$(basename $(SRC)))
 
 OPT = -g -Wall
 INC = -I$(PYTHIA8_DIR)/include
-LIBS = -L$(PYTHIA8_DIR)/lib -lpythia8 -ldl
+LIBS = -L$(PYTHIA8_DIR)/lib -lpythia8 -ldl -Wl,-rpath,./pythia8317/lib
 
 .cc.o:
 	$(CXX) $(OPT) $(INC) -c -o $@ $<

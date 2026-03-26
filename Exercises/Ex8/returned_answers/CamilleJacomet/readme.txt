@@ -7,5 +7,5 @@ select muons
 
 make
 make muons
-(width.job)
+muons.job
 (root width.cxx)
