@@ -1,11 +1,10 @@
-generate events
---> at LHC, CM = 13.6 TeV
---> minimum bias
-
-select muons
---> find transverse mom and pseudo-rapidity
+Question 1.
 
 make
 make muons
 muons.job
-(root width.cxx)
+muon_hist.py
+
+Question 2.
+
+muon_prob.py

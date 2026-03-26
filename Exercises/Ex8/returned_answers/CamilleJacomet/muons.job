@@ -1,5 +1,6 @@
 #!/bin/tcsh
 
-setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:./pythia8311/lib
+setenv LD_LIBRARY_PATH ./pythia8317/lib
+setenv PYTHIA8DATA ./pythia8317/share/Pythia8/xmldoc
 
 ./muons

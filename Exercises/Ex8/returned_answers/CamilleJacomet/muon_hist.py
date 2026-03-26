@@ -14,10 +14,10 @@ def main():
             pT.append(float(p))
             eta.append(float(e))
 
-    h_pT = ROOT.TH1F("h_pT", "Muon pT; pT [GeV]; Entries", 100, 0, 10)
+    h_pT = ROOT.TH1F("h_pT", "Muon Transverse momentum; pT [GeV]; Entries", 100, 0, 10)
     h_pT.SetColors(ROOT.kBlack,ROOT.kBlack,ROOT.kCyan)
     h_pT.SetLineWidth(3)
-    h_eta = ROOT.TH1F("h_eta", "Muon eta; eta; Entries", 100, -10, 10)
+    h_eta = ROOT.TH1F("h_eta", "Muon Pseudorapidity; Pseudorapidity; Entries", 100, -10, 10)
     h_eta.SetColors(ROOT.kBlack,ROOT.kBlack,ROOT.kCyan)
     h_eta.SetLineWidth(3)
 
