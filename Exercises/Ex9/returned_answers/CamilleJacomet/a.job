@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Set path to GEANT4 installation
+G4INSTALL=/Users/camille/Development/CmHEP/CompInHEP2026/external/geant4
+
+# Copy example basic/B4/B4a
+mkdir build
+cd build
+cmake -DCMAKE_PREFIX_PATH=$G4INSTALL $G4INSTALL/share/Geant4/examples/basic/B4/B4a
+
+# make
+echo "Example B4a installed"
+
+cd ..
+rm -rf build*
