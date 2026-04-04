@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Particle and energy as input
+PARTICLE=$1
+ENERGY=$2
+
+# Set paths to GEANT4 and DAWN installations
+export G4INSTALL=/Users/camille/Development/CmHEP/CompInHEP2026/external/geant4
+export PATH=${PATH}:/Users/camille/Development/CmHEP/CompInHEP2026/external/dawn_3_91a
+
+# Copy example basic/B4/B4a
+mkdir build
+cd build
+cmake -DCMAKE_PREFIX_PATH=$G4INSTALL $G4INSTALL/share/Geant4/examples/basic/B4/B4a
+# echo "Example B4a installed"
+make
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${G4INSTALL}/lib
+
+# Set use of DAWN
+sed -i '' '/^\/vis\/open/ s/$/ DAWNFILE/' vis.mac
+
+# Create macro dynamically
+cat > temp.mac <<EOF
+/run/initialize
+/control/execute init_vis.mac
+
+/gun/particle $PARTICLE
+/gun/energy $ENERGY
+
+/run/beamOn 1
+EOF
+
+# Run Geant4
+./exampleB4a -m temp.mac
+
+# Convert output
+magick g4_0000.eps g4_${PARTICLE}.pdf
+
+echo "Done: g4_${PARTICLE}.pdf created"
+
+cd ..
+mv build/g4_${PARTICLE}.pdf .
+rm -rf build*

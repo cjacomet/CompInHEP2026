@@ -1,2 +1,2 @@
-path to GEANT4:
-../../../../external/geant4
+Simulate by running:
+./run_particle.job <particle> "<energy>"
