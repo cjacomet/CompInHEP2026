@@ -3,6 +3,7 @@
 # Particle and energy as input
 PARTICLE=$1
 ENERGY=$2
+ABS_MATERIAL=$3
 
 # Set paths to GEANT4 and DAWN installations
 export G4INSTALL=/Users/camille/Development/CmHEP/CompInHEP2026/external/geant4
@@ -11,8 +12,17 @@ export PATH=${PATH}:/Users/camille/Development/CmHEP/CompInHEP2026/external/dawn
 # Copy example basic/B4/B4a
 mkdir build
 cd build
-cmake -DCMAKE_PREFIX_PATH=$G4INSTALL $G4INSTALL/share/Geant4/examples/basic/B4/B4a
-# echo "Example B4a installed"
+
+# Replace absorber material (default lead):
+if [ -n "$ABS_MATERIAL" ]; then
+  cp -R $G4INSTALL/examples/basic/B4/B4a .
+  sed -i '' "s/G4_Pb/${ABS_MATERIAL}/g" B4a/src/DetectorConstruction.cc
+  cmake -DCMAKE_PREFIX_PATH=$G4INSTALL B4a
+else
+  cmake -DCMAKE_PREFIX_PATH=$G4INSTALL $G4INSTALL/share/Geant4/examples/basic/B4/B4a
+fi
+
+echo "Example B4a installed"
 make
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${G4INSTALL}/lib
 
@@ -34,10 +44,14 @@ EOF
 ./exampleB4a -m temp.mac
 
 # Convert output
-magick g4_0000.eps g4_${PARTICLE}.pdf
+if [ -n "$ABS_MATERIAL" ]; then
+  magick g4_0000.eps g4_${ABS_MATERIAL}_${PARTICLE}.pdf
+  cd ..
+  mv build/g4_${ABS_MATERIAL}_${PARTICLE}.pdf .
+else
+  magick g4_0000.eps g4_${PARTICLE}.pdf
+  cd ..
+  mv build/g4_${PARTICLE}.pdf .
+fi
 
-echo "Done: g4_${PARTICLE}.pdf created"
-
-cd ..
-mv build/g4_${PARTICLE}.pdf .
 rm -rf build*
