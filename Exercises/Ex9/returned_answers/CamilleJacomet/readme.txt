@@ -11,13 +11,16 @@ The default materials are lead as absorber and argon gas as gap.
 The default constructor geometry is 10cmx10cm with 10 layers of 10mm absorber followed by 5mm gap.
 (All defined in B4a/src/DetectorConstruction.cc)
 
+In run_particle.job:
+change G4INSTALL to your GEANT4 installation path
+and PATH to your DAWN installation path
+
 Simulate by running:
 ./run_particle.job <particle> "<energy>"
 
-So: 
-./run_particle.job e- "10 GeV"
-./run_particle.job proton "10 GeV"
-./run_particle.job alpha "10 GeV"
+a) ./run_particle.job e- "10 GeV"
+b) ./run_particle.job proton "10 GeV"
+c) ./run_particle.job alpha "10 GeV"
 
 To simulate with different absorber material run:
 ./run_particle.job <particle> "<energy>" <abs_material>
