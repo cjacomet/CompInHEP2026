@@ -7,7 +7,7 @@ from coffea.nanoevents.methods import candidate
 import uproot
 
 def main():
-    filename = "file://DYJetsToLL.root"
+    filename = "file://../DYJetsToLL.root"
     
     # Creating events
     events = NanoEventsFactory.from_root(
